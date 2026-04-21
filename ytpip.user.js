@@ -70,7 +70,7 @@
     button.title = "Picture-in-Picture (PiPifier)";
     button.innerHTML = PIP_ICON_SVG;
     button.style.cssText =
-      "width: 56px; height: 100%; padding: 0; opacity: 1.0; display: flex; align-items: center; justify-content: center;";
+      "width: 56px; height: 100%; padding: 0; opacity: 0.9; display: flex; align-items: center; justify-content: center;";
     button.addEventListener("click", togglePiP);
 
     controls.insertBefore(button, controls.querySelector(".ytp-right-controls-right"));
