@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouTube Preview Volume Control
 // @description  Sets the volume of YouTube hover previews. Port of github.com/Master-Chief-Burner/YouTube-Preview-Volume-Control
-// @version      2.0
+// @version      2.1
 // @match        *://*.youtube.com/*
 // @run-at       document-start
 // @grant        GM_getValue
@@ -18,22 +18,16 @@
   const original = Object.getOwnPropertyDescriptor(proto, 'volume');
 
   Object.defineProperty(proto, 'volume', {
-    get() {
-      if (isPreview(this)) return previewVolume;
-      return original.get.call(this);
-    },
+    get: original.get,
     set(value) {
       original.set.call(this, isPreview(this) ? previewVolume : value);
     },
     configurable: true,
   });
 
+  // Only videos positively inside the hover-preview container. Detached or unknown = normal video.
   function isPreview(video) {
-    if (video.closest('#movie_player'))           return false;
-    if (video.closest('#shorts-player'))          return false;
-    if (video.closest('ytd-reel-video-renderer')) return false;
-    if (video.closest('ytd-shorts'))              return false;
-    return true;
+    return !!video.closest('ytd-video-preview, #video-preview');
   }
 
   // Replaces the extension's popup
