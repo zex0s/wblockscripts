@@ -1,0 +1,48 @@
+// ==UserScript==
+// @name         YouTube Preview Volume Control
+// @description  Sets the volume of YouTube hover previews. Port of github.com/Master-Chief-Burner/YouTube-Preview-Volume-Control
+// @version      2.0
+// @match        *://*.youtube.com/*
+// @run-at       document-start
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @grant        GM_registerMenuCommand
+// @downloadURL  https://raw.githubusercontent.com/zex0s/wblockscripts/main/youtube-preview-volume.user.js
+// @updateURL    https://raw.githubusercontent.com/zex0s/wblockscripts/main/youtube-preview-volume.user.js
+// ==/UserScript==
+
+(function () {
+  let previewVolume = GM_getValue('previewVolume', 15) / 100;
+
+  const proto = unsafeWindow.HTMLMediaElement.prototype;
+  const original = Object.getOwnPropertyDescriptor(proto, 'volume');
+
+  Object.defineProperty(proto, 'volume', {
+    get() {
+      if (isPreview(this)) return previewVolume;
+      return original.get.call(this);
+    },
+    set(value) {
+      original.set.call(this, isPreview(this) ? previewVolume : value);
+    },
+    configurable: true,
+  });
+
+  function isPreview(video) {
+    if (video.closest('#movie_player'))           return false;
+    if (video.closest('#shorts-player'))          return false;
+    if (video.closest('ytd-reel-video-renderer')) return false;
+    if (video.closest('ytd-shorts'))              return false;
+    return true;
+  }
+
+  // Replaces the extension's popup
+  GM_registerMenuCommand(`Set preview volume (now ${Math.round(previewVolume * 100)}%)`, () => {
+    const input = prompt('Preview volume (0-100):', Math.round(previewVolume * 100));
+    const n = Number(input);
+    if (input === null || input.trim() === '' || !(n >= 0 && n <= 100)) return;
+    GM_setValue('previewVolume', n);
+    previewVolume = n / 100;
+    document.querySelectorAll('video').forEach(v => { if (isPreview(v)) original.set.call(v, previewVolume); });
+  });
+})();

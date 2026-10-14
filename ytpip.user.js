@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ytpip
 // @namespace    https://github.com/user/zex0s
-// @version      1.0.0
+// @version      1.0.1
 // @description  Enable Picture-in-Picture mode for YouTube videos
 // @match        *://*.youtube.com/*
 // @match        *://*.youtube-nocookie.com/*
@@ -9,8 +9,8 @@
 // @run-at       document-idle
 // @icon         https://raw.githubusercontent.com/arnoappenzeller/PiPifier/refs/heads/main/PiPifier%20iOS/Graphic%20Ressources/Icon/Rounded/AppIcon/Icon-167.png
 // @license      MIT
-// @downloadURL https://update.greasyfork.org/scripts/560887/PiPifier.user.js
-// @updateURL https://update.greasyfork.org/scripts/560887/PiPifier.meta.js
+// @downloadURL  https://raw.githubusercontent.com/zex0s/wblockscripts/main/ytpip.user.js
+// @updateURL    https://raw.githubusercontent.com/zex0s/wblockscripts/main/ytpip.user.js
 // ==/UserScript==
 
 /* jshint esversion: 8 */
