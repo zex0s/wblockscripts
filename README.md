@@ -16,12 +16,6 @@ Blurs your @username on x.com / twitter.com — in the account switcher (bottom-
 
 Install: [hide-x-username.user.js](https://raw.githubusercontent.com/zex0s/wblockscripts/main/hide-x-username.user.js)
 
-## Skip Google Redirect
-
-Skips Google's "Redirect Notice" page (google.com/url, google.co.nz/url) and goes straight to the destination link.
-
-Install: [skip-google-redirect.user.js](https://raw.githubusercontent.com/zex0s/wblockscripts/main/skip-google-redirect.user.js)
-
 ## ytpip
 
 Adds a Picture-in-Picture button to the YouTube player controls (youtube.com and youtube-nocookie.com embeds). Click it to pop the video out; click again to bring it back.
