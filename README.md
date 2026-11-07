@@ -16,6 +16,12 @@ Blurs your @username on x.com / twitter.com — in the account switcher (bottom-
 
 Install: [hide-x-username.user.js](https://raw.githubusercontent.com/zex0s/wblockscripts/main/hide-x-username.user.js)
 
+## X Safari Back Fix
+
+Fixes the X / Twitter feed going black in Safari after you open a tweet and go back, until you scroll. X restores your scroll position, but Safari keeps showing a stale one; the script does a quick jump to the top and back so Safari catches up.
+
+Install: [x-safari-back-black-fix.user.js](https://raw.githubusercontent.com/zex0s/wblockscripts/main/x-safari-back-black-fix.user.js)
+
 ## ytpip
 
 Adds a Picture-in-Picture button to the YouTube player controls (youtube.com and youtube-nocookie.com embeds). Click it to pop the video out; click again to bring it back.
