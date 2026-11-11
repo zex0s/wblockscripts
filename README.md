@@ -29,3 +29,9 @@ Adds a Picture-in-Picture button to the YouTube player controls (youtube.com and
 Install: [ytpip.user.js](https://raw.githubusercontent.com/zex0s/wblockscripts/main/ytpip.user.js)
 
 Based on [PiPifier](https://github.com/arnoappenzeller/PiPifier) (MIT).
+
+## YouTube Disable Number Keys
+
+Stops the 0-9 keys (and numpad) from jumping the video to 0%-90% when pressed by accident. Typing numbers in search, comments etc. still works.
+
+Install: [youtube-disable-number-keys.user.js](https://raw.githubusercontent.com/zex0s/wblockscripts/main/youtube-disable-number-keys.user.js)
